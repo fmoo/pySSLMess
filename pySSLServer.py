@@ -19,9 +19,9 @@ if __name__ == '__main__':
     import ssl
     def handler(sock):
         sock = ssl.wrap_socket(sock, keyfile=ns.key, certfile=ns.crt,
-                               server_side=True, cert_reqs=ssl.CERT_REQUIRED,
+                               server_side=True, cert_reqs=ssl.CERT_OPTIONAL,
                                ssl_version=ssl.PROTOCOL_TLSv1, ca_certs=ns.cacrt)
-        print sock.getpeercert()
+        print "Got cert:", sock.getpeercert()
         sock.send("Hello world\n")
         sock.close()
 

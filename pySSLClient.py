@@ -3,8 +3,8 @@ if __name__ == '__main__':
     ap = ArgumentParser()
     ap.add_argument('port', type=int, nargs='?')
     ap.add_argument('host', type=str, default='127.0.0.1', nargs='?')
-    ap.add_argument('--key', default='server.key', type=str)
-    ap.add_argument('--crt', default='server.crt', type=str)
+    ap.add_argument('--crt', default=None, type=str)
+    ap.add_argument('--key', default=None, type=str)
     ns = ap.parse_args()
 
     import socket
